@@ -26,17 +26,24 @@ function eventListeners() {
 
 }
 
+// Push new item to array
 function addNewItem(event) {
 
-    bodyTable.push({
+    if(inputName.value=="" || inputCode.value=="" || inputPrice.value=="" || inputCount.value==""){
+        alert("Please add text, don't keep empty")
+    }else{
 
-        "id": bodyTable.length + 1,
-        "name": inputName.value,
-        "count": inputCount.value,
-        "price": inputPrice.value,
-        "barcode": inputCode.value
+        bodyTable.push({
 
-    })
+            "id": bodyTable.length + 1,
+            "name": inputName.value,
+            "count": inputCount.value,
+            "price": inputPrice.value,
+            "barcode": inputCode.value
+    
+        })
+    }
+ 
 
     creatItem();
 
@@ -44,11 +51,13 @@ function addNewItem(event) {
     event.preventDefault();
 };
 
+// Creat new row(item) for table 
 
 function creatItem(event) {
   
     ttbody.innerHTML = "";
 
+   
 
     for (data of bodyTable) {
 
@@ -81,7 +90,6 @@ function creatItem(event) {
 }
 
 
-console.log(ttbody);
 
 // error table artmir
 
